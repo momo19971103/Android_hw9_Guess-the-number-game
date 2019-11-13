@@ -41,30 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
     void one_To_nineButSet() {
         for (int i = 1; i < Rid.length; i++) {
-            butSet(Rid[i]);
+            butSet(i);
         }
     }
 
-    void butSet(final int ID) {
-        final Button button = findViewById(ID);
+    void butSet(final int IDNum) {
+        final Button button = findViewById(Rid[IDNum]);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 intent.putExtra("random", random);
-                intent.putExtra("InputN", IdConversion(ID));
+                intent.putExtra("InputN", IDNum);
                 intent.putExtra("guessTime", guessTime);
                 startActivity(intent);
             }
         });
-    }
-
-    int IdConversion(int ID) {
-        int Value = -1;
-        for (int i = 1; i < Rid.length; i++) {
-            if (ID == Rid[i]) {
-                Value = i;
-            }
-        }
-        return Value;
     }
 }
