@@ -11,8 +11,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private int random;
     private int guessTime;
-    int[] Rid = {R.id.button, R.id.button1, R.id.button2, R.id.button3,
-            R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9};
+    int[] Rid = {R.id.button, R.id.button1, R.id.button2, R.id.button3, R.id.button4,
+            R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void one_To_nineButSet() {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < Rid.length; i++) {
             butSet(Rid[i]);
         }
     }
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     int IdConversion(int ID) {
         int Value = -1;
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < Rid.length; i++) {
             if (ID == Rid[i]) {
                 Value = i;
             }
