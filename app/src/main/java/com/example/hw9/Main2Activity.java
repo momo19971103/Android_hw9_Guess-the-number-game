@@ -11,26 +11,26 @@ import android.widget.TextView;
 public class Main2Activity extends AppCompatActivity {
     private int guessTime;
     private int random;
-    private int input_N;
     private boolean ReturnGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        final Button button = (Button) findViewById(R.id.button);
+        final Button button =findViewById(R.id.button);
 
         Intent intent=getIntent();
         random = intent.getIntExtra("random",0);
-        input_N = intent.getIntExtra("InputN",0);
+        int input_N = intent.getIntExtra("InputN", 0);
         guessTime = intent.getIntExtra("guessTime",0);
 
-        TextView text_prompt = (TextView)findViewById(R.id.text_prompt);
-        TextView text_result = (TextView)findViewById(R.id.text_result);
+        TextView text_prompt = findViewById(R.id.text_prompt);
+        TextView text_result = findViewById(R.id.text_result);
         if (random == input_N){
             text_result.setText("O");
             guessTime++;
-            text_prompt.setText(getString(R.string.bingo)+guessTime+"次");
+            String set_text = getString(R.string.bingo)+guessTime+"次";
+            text_prompt.setText(set_text);
             ReturnGame=true;
             guessTime=0;
             button.setText("再玩一次");
@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
             ReturnGame=false;
             guessTime++;
         }
-        else if (random > input_N){
+        else {
             text_result.setText("X");
             text_prompt.setText("猜太小");
             ReturnGame=false;
